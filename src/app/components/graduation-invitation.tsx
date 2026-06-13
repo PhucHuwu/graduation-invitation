@@ -91,12 +91,43 @@ const CONFETTI = [
 ];
 
 export function GraduationInvitation() {
-  const [time, setTime] = useState<Remaining>(getRemaining);
+  const [time, setTime] = useState<Remaining>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+    setTime(getRemaining());
     const id = setInterval(() => setTime(getRemaining()), 1000);
     return () => clearInterval(id);
   }, []);
+
+  const handleAddCalendar = () => {
+    const icsContent = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//Hoang Thu Thuy//Graduation Invitation//EN",
+      "BEGIN:VEVENT",
+      "UID:graduation-hoang-thu-thuy-2026",
+      "DTSTAMP:20260614T000000Z",
+      "DTSTART:20260629T033000Z", // 10:30 AM Hanoi time (UTC+7 -> 03:30 AM UTC)
+      "DTEND:20260629T060000Z",
+      "SUMMARY:Lễ tốt nghiệp Hoàng Thu Thủy",
+      "DESCRIPTION:Trân trọng kính mời bạn đến tham dự buổi lễ tốt nghiệp của Hoàng Thu Thủy.",
+      "LOCATION:Đại học Sư phạm Hà Nội\\, 136 Xuân Thủy\\, Cầu Giấy\\, Hà Nội",
+      "END:VEVENT",
+      "END:VCALENDAR",
+    ].join("\r\n");
+
+    const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "le-tot-nghiep-hoang-thu-thuy.ics");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <div
@@ -257,11 +288,9 @@ export function GraduationInvitation() {
                 136 XUÂN THỦY, CẦU GIẤY, HÀ NỘI
               </p>
               <div className="flex gap-[16px] md:gap-[24px]">
-                <a
-                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=L%E1%BB%85+t%E1%BB%91t+nghi%E1%BB%87p+Ho%C3%A0ng+Thu+Th%E1%BB%A7y&dates=20260629T033000Z/20260629T060000Z&details=Tr%C3%A2n+tr%E1%BB%8Dng+k%C3%ADnh+m%E1%BB%9Di+b%E1%BA%A1n+%C4%91%E1%BA%BFn+tham+d%E1%BB%B1+bu%E1%BB%95i+l%E1%BB%85+t%E1%BB%91t+nghi%E1%BB%87p+c%E1%BB%A7a+Ho%C3%A0ng+Thu+Th%E1%BB%A7y&location=%C4%90%E1%BA%A1i+H%E1%BB%8Dc+S%C6%B0+Ph%E1%BA%A1m+H%C3%A0+N%E1%BB%99i%2C+136+Xu%C3%A2n+Th%E1%BB%A7y%2C+C%E1%BA%A7u+Gi%E1%BA%A5y%2C+H%C3%A0+N%E1%BB%99i"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border border-[#b3b3b3] px-[17px] md:px-[24px] pt-[8.5px] md:pt-[12px] pb-[9.5px] md:pb-[14px] text-[#666] uppercase hover:bg-[#f5f5f5] transition-colors md:text-[14px]"
+                <button
+                  onClick={handleAddCalendar}
+                  className="border border-[#b3b3b3] px-[17px] md:px-[24px] pt-[8.5px] md:pt-[12px] pb-[9.5px] md:pb-[14px] text-[#666] uppercase hover:bg-[#f5f5f5] transition-colors md:text-[14px] cursor-pointer"
                   style={{
                     fontFamily: SANS,
                     fontWeight: 400,
@@ -271,7 +300,7 @@ export function GraduationInvitation() {
                   }}
                 >
                   THÊM VÀO LỊCH
-                </a>
+                </button>
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+H%E1%BB%8Dc+S%C6%B0+Ph%E1%BA%A1m+H%C3%A0+N%E1%BB%99i"
                   target="_blank"
@@ -295,10 +324,10 @@ export function GraduationInvitation() {
 
           {/* Countdown timer */}
           <div className="pt-[48px] flex gap-[24px] items-start justify-center w-full max-w-[576px]">
-            <CountdownUnit value={time.days} label="NGÀY" />
-            <CountdownUnit value={time.hours} label="GIỜ" />
-            <CountdownUnit value={time.minutes} label="PHÚT" />
-            <CountdownUnit value={time.seconds} label="GIÂY" />
+            <CountdownUnit value={isMounted ? time.days : 0} label="NGÀY" />
+            <CountdownUnit value={isMounted ? time.hours : 0} label="GIỜ" />
+            <CountdownUnit value={isMounted ? time.minutes : 0} label="PHÚT" />
+            <CountdownUnit value={isMounted ? time.seconds : 0} label="GIÂY" />
           </div>
         </div>
       </main>
