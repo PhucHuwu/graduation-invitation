@@ -320,14 +320,14 @@ export function GraduationInvitation() {
                         className="w-full text-left px-4 py-2 text-sm text-[#4a4a4a] hover:bg-[#f5f5f5] font-normal cursor-pointer"
                         style={{ fontFamily: SANS }}
                       >
-                        Google Calendar
+                        Android / PC
                       </button>
                       <button
                         onClick={handleDownloadIcs}
                         className="w-full text-left px-4 py-2 text-sm text-[#4a4a4a] hover:bg-[#f5f5f5] font-normal cursor-pointer"
                         style={{ fontFamily: SANS }}
                       >
-                        Apple / Outlook (ICS)
+                        iPhone
                       </button>
                     </div>
                   )}
