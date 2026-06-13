@@ -258,7 +258,7 @@ export function GraduationInvitation() {
               </p>
               <div className="flex gap-[16px] md:gap-[24px]">
                 <a
-                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=L%E1%BB%85+t%E1%BB%91t+nghi%E1%BB%87p+Ho%C3%A0n+Thu+Th%E1%BB%A7y&dates=20260629T033000Z/20260629T060000Z&details=Tr%C3%A2n+tr%E1%BB%8Dng+k%C3%ADnh+m%E1%BB%9Di+b%E1%BA%A1n+%C4%91%E1%BA%BFn+tham+d%E1%BB%B1+bu%E1%BB%95i+l%E1%BB%85+t%E1%BB%91t+nghi%E1%BB%87p+c%E1%BB%A7a+Ho%C3%A0n+Thu+Th%E1%BB%A7y&location=%C4%90%E1%BA%A1i+H%E1%BB%8Dc+S%C6%B0+Ph%E1%BA%A1m+H%C3%A0+N%E1%BB%99i%2C+136+Xu%C3%A2n+Th%E1%BB%A7y%2C+C%E1%BA%A7u+Gi%E1%BA%A5y%2C+H%C3%A0+N%E1%BB%99i"
+                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=L%E1%BB%85+t%E1%BB%91t+nghi%E1%BB%87p+Ho%C3%A0ng+Thu+Th%E1%BB%A7y&dates=20260629T033000Z/20260629T060000Z&details=Tr%C3%A2n+tr%E1%BB%8Dng+k%C3%ADnh+m%E1%BB%9Di+b%E1%BA%A1n+%C4%91%E1%BA%BFn+tham+d%E1%BB%B1+bu%E1%BB%95i+l%E1%BB%85+t%E1%BB%91t+nghi%E1%BB%87p+c%E1%BB%A7a+Ho%C3%A0ng+Thu+Th%E1%BB%A7y&location=%C4%90%E1%BA%A1i+H%E1%BB%8Dc+S%C6%B0+Ph%E1%BA%A1m+H%C3%A0+N%E1%BB%99i%2C+136+Xu%C3%A2n+Th%E1%BB%A7y%2C+C%E1%BA%A7u+Gi%E1%BA%A5y%2C+H%C3%A0+N%E1%BB%99i"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border border-[#b3b3b3] px-[17px] md:px-[24px] pt-[8.5px] md:pt-[12px] pb-[9.5px] md:pb-[14px] text-[#666] uppercase hover:bg-[#f5f5f5] transition-colors md:text-[14px]"
