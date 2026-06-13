@@ -139,7 +139,7 @@ export function GraduationInvitation() {
             <img
               src="/graduation-cap.png"
               alt="Graduation Cap"
-              className="h-[120px] md:h-[180px] w-auto object-contain opacity-80 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)] transition-all"
+              className="h-[120px] md:h-[180px] w-auto object-contain opacity-80 transition-all"
             />
           </div>
 
