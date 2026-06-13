@@ -94,6 +94,8 @@ export function GraduationInvitation() {
   const [time, setTime] = useState<Remaining>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isMounted, setIsMounted] = useState(false);
 
+  const [showCalendarMenu, setShowCalendarMenu] = useState(false);
+
   useEffect(() => {
     setIsMounted(true);
     setTime(getRemaining());
@@ -101,7 +103,7 @@ export function GraduationInvitation() {
     return () => clearInterval(id);
   }, []);
 
-  const handleAddCalendar = () => {
+  const handleDownloadIcs = () => {
     const icsContent = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
@@ -127,6 +129,15 @@ export function GraduationInvitation() {
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
+    setShowCalendarMenu(false);
+  };
+
+  const handleGoogleCalendar = () => {
+    window.open(
+      "https://calendar.google.com/calendar/render?action=TEMPLATE&text=L%E1%BB%85+t%E1%BB%91t+nghi%E1%BB%87p+Ho%C3%A0ng+Thu+Th%E1%BB%A7y&dates=20260629T033000Z/20260629T060000Z&details=Tr%C3%A2n+tr%E1%BB%8Dng+k%C3%ADnh+m%E1%BB%9Di+b%E1%BA%A1n+%C4%91%E1%BA%BFn+tham+d%E1%BB%B1+bu%E1%BB%95i+l%E1%BB%85+t%E1%BB%91t+nghi%E1%BB%87p+c%E1%BB%A7a+Ho%C3%A0ng+Thu+Th%E1%BB%A7y&location=%C4%90%E1%BA%A1i+H%E1%BB%8Dc+S%C6%B0+Ph%E1%BA%A1m+H%C3%A0+N%E1%BB%99i%2C+136+Xu%C3%A2n+Th%E1%BB%A7y%2C+C%E1%BA%A7u+Gi%E1%BA%A5y%2C+H%C3%A0+N%E1%BB%99i",
+      "_blank"
+    );
+    setShowCalendarMenu(false);
   };
 
   return (
@@ -288,19 +299,39 @@ export function GraduationInvitation() {
                 136 XUÂN THỦY, CẦU GIẤY, HÀ NỘI
               </p>
               <div className="flex gap-[16px] md:gap-[24px]">
-                <button
-                  onClick={handleAddCalendar}
-                  className="border border-[#b3b3b3] px-[17px] md:px-[24px] pt-[8.5px] md:pt-[12px] pb-[9.5px] md:pb-[14px] text-[#666] uppercase hover:bg-[#f5f5f5] transition-colors md:text-[14px] cursor-pointer"
-                  style={{
-                    fontFamily: SANS,
-                    fontWeight: 400,
-                    fontSize: "12px",
-                    letterSpacing: "0.6px",
-                    lineHeight: "16px",
-                  }}
-                >
-                  THÊM VÀO LỊCH
-                </button>
+                <div className="relative">
+                  <button
+                    onClick={() => setShowCalendarMenu(!showCalendarMenu)}
+                    className="border border-[#b3b3b3] px-[17px] md:px-[24px] pt-[8.5px] md:pt-[12px] pb-[9.5px] md:pb-[14px] text-[#666] uppercase hover:bg-[#f5f5f5] transition-colors md:text-[14px] cursor-pointer"
+                    style={{
+                      fontFamily: SANS,
+                      fontWeight: 400,
+                      fontSize: "12px",
+                      letterSpacing: "0.6px",
+                      lineHeight: "16px",
+                    }}
+                  >
+                    THÊM VÀO LỊCH
+                  </button>
+                  {showCalendarMenu && (
+                    <div className="absolute left-0 mt-2 w-48 bg-white border border-[#e2e2e2] rounded shadow-lg z-50 py-1 transition-all">
+                      <button
+                        onClick={handleGoogleCalendar}
+                        className="w-full text-left px-4 py-2 text-sm text-[#4a4a4a] hover:bg-[#f5f5f5] font-normal cursor-pointer"
+                        style={{ fontFamily: SANS }}
+                      >
+                        Google Calendar
+                      </button>
+                      <button
+                        onClick={handleDownloadIcs}
+                        className="w-full text-left px-4 py-2 text-sm text-[#4a4a4a] hover:bg-[#f5f5f5] font-normal cursor-pointer"
+                        style={{ fontFamily: SANS }}
+                      >
+                        Apple / Outlook (ICS)
+                      </button>
+                    </div>
+                  )}
+                </div>
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+H%E1%BB%8Dc+S%C6%B0+Ph%E1%BA%A1m+H%C3%A0+N%E1%BB%99i"
                   target="_blank"
