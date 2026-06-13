@@ -1,8 +1,8 @@
+@import "tw-animate-css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import "tw-animate-css";
 
 @keyframes float-gentle {
   0%, 100% {
@@ -29,4 +29,5 @@
 .animate-float-gentle-reverse {
   animation: float-gentle-reverse 5s ease-in-out infinite;
 }
+
 
