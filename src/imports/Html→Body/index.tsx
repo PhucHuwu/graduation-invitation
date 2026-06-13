@@ -107,7 +107,7 @@ function Heading() {
       data-name="Heading 2"
     >
       <div className="[word-break:break-word] flex flex-col font-['Great_Vibes:Regular',sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#4a4a4a] text-[64px] text-center whitespace-nowrap">
-        <p className="leading-[64px] mb-0">Hoàn Thu</p>
+        <p className="leading-[64px] mb-0">Hoàng Thu</p>
         <p className="leading-[64px]">Thủy</p>
       </div>
     </div>
