@@ -100,8 +100,20 @@ export function GraduationInvitation() {
     setIsMounted(true);
     setTime(getRemaining());
     const id = setInterval(() => setTime(getRemaining()), 1000);
-    return () => clearInterval(id);
-  }, []);
+
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (showCalendarMenu && !target.closest(".calendar-dropdown-container")) {
+        setShowCalendarMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      clearInterval(id);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showCalendarMenu]);
 
   const handleDownloadIcs = () => {
     const icsContent = [
@@ -299,7 +311,7 @@ export function GraduationInvitation() {
                 136 XUÂN THỦY, CẦU GIẤY, HÀ NỘI
               </p>
               <div className="flex gap-[16px] md:gap-[24px]">
-                <div className="relative">
+                <div className="relative calendar-dropdown-container">
                   <button
                     onClick={() => setShowCalendarMenu(!showCalendarMenu)}
                     className="border border-[#b3b3b3] px-[17px] md:px-[24px] pt-[8.5px] md:pt-[12px] pb-[9.5px] md:pb-[14px] text-[#666] uppercase hover:bg-[#f5f5f5] transition-colors md:text-[14px] cursor-pointer"
@@ -320,14 +332,14 @@ export function GraduationInvitation() {
                         className="w-full text-left px-4 py-2 text-sm text-[#4a4a4a] hover:bg-[#f5f5f5] font-normal cursor-pointer"
                         style={{ fontFamily: SANS }}
                       >
-                        Android / PC
+                        Android / PC (Google)
                       </button>
                       <button
                         onClick={handleDownloadIcs}
                         className="w-full text-left px-4 py-2 text-sm text-[#4a4a4a] hover:bg-[#f5f5f5] font-normal cursor-pointer"
                         style={{ fontFamily: SANS }}
                       >
-                        iPhone
+                        iPhone (Apple)
                       </button>
                     </div>
                   )}
