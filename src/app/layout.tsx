@@ -3,7 +3,7 @@ import "../styles/index.css";
 
 export const metadata: Metadata = {
   title: "Thiệp mời tốt nghiệp - Hoàng Thu Thủy",
-  description: "Hãy cùng nhau kỷ niệm thành tựu này và chia sẻ niềm vui trong ngày đặc biệt này!",
+  description: "Sự hiện diện của bạn là niềm vui to lớn đối với mình!",
 };
 
 export default function RootLayout({
