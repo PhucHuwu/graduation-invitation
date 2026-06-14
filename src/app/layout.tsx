@@ -3,7 +3,7 @@ import "../styles/index.css";
 
 export const metadata: Metadata = {
   title: "Graduation Invitation",
-  description: "Graduation Invitation - Hoan Thu Thuy",
+  description: "Graduation Invitation - Hoàng Thu Thủy",
 };
 
 export default function RootLayout({
