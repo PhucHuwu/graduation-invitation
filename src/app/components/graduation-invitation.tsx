@@ -11,8 +11,8 @@ const SERIF = "'Tinos', 'Liberation Serif', serif";
 const SANS = "'Manrope', sans-serif";
 const SCRIPT = "'Great Vibes', cursive";
 
-// Target date for the live countdown (June graduation, 10:30 AM).
-const EVENT_DATE = new Date("2026-06-29T10:30:00");
+// Target date for the live countdown (June graduation, 9:30 AM).
+const EVENT_DATE = new Date("2026-06-29T09:30:00");
 
 type Remaining = { days: number; hours: number; minutes: number; seconds: number };
 
@@ -123,8 +123,8 @@ export function GraduationInvitation() {
       "BEGIN:VEVENT",
       "UID:graduation-hoang-thu-thuy-2026",
       "DTSTAMP:20260614T000000Z",
-      "DTSTART:20260629T033000Z", // 10:30 AM Hanoi time (UTC+7 -> 03:30 AM UTC)
-      "DTEND:20260629T060000Z",
+      "DTSTART:20260629T023000Z", // 9:30 AM Hanoi time (UTC+7 -> 02:30 AM UTC)
+      "DTEND:20260629T050000Z",
       "SUMMARY:Lễ tốt nghiệp Hoàng Thu Thủy",
       "DESCRIPTION:Trân trọng kính mời bạn đến tham dự buổi lễ tốt nghiệp của Hoàng Thu Thủy.",
       "LOCATION:Đại học Sư phạm Hà Nội\\, 136 Xuân Thủy\\, Cầu Giấy\\, Hà Nội",
@@ -146,7 +146,7 @@ export function GraduationInvitation() {
 
   const handleGoogleCalendar = () => {
     window.open(
-      "https://calendar.google.com/calendar/render?action=TEMPLATE&text=L%E1%BB%85+t%E1%BB%91t+nghi%E1%BB%87p+Ho%C3%A0ng+Thu+Th%E1%BB%A7y&dates=20260629T033000Z/20260629T060000Z&details=Tr%C3%A2n+tr%E1%BB%8Dng+k%C3%ADnh+m%E1%BB%9Di+b%E1%BA%A1n+%C4%91%E1%BA%BFn+tham+d%E1%BB%B1+bu%E1%BB%95i+l%E1%BB%85+t%E1%BB%91t+nghi%E1%BB%87p+c%E1%BB%A7a+Ho%C3%A0ng+Thu+Th%E1%BB%A7y&location=%C4%90%E1%BA%A1i+H%E1%BB%8Dc+S%C6%B0+Ph%E1%BA%A1m+H%C3%A0+N%E1%BB%99i%2C+136+Xu%C3%A2n+Th%E1%BB%A7y%2C+C%E1%BA%A7u+Gi%E1%BA%A5y%2C+H%C3%A0+N%E1%BB%99i",
+      "https://calendar.google.com/calendar/render?action=TEMPLATE&text=L%E1%BB%85+t%E1%BB%91t+nghi%E1%BB%87p+Ho%C3%A0ng+Thu+Th%E1%BB%A7y&dates=20260629T023000Z/20260629T050000Z&details=Tr%C3%A2n+tr%E1%BB%8Dng+k%C3%ADnh+m%E1%BB%9Di+b%E1%BA%A1n+%C4%91%E1%BA%BFn+tham+d%E1%BB%B1+bu%E1%BB%95i+l%E1%BB%85+t%E1%BB%91t+nghi%E1%BB%87p+c%E1%BB%A7a+Ho%C3%A0ng+Thu+Th%E1%BB%A7y&location=%C4%90%E1%BA%A1i+H%E1%BB%8Dc+S%C6%B0+Ph%E1%BA%A1m+H%C3%A0+N%E1%BB%99i%2C+136+Xu%C3%A2n+Th%E1%BB%A7y%2C+C%E1%BA%A7u+Gi%E1%BA%A5y%2C+H%C3%A0+N%E1%BB%99i",
       "_blank"
     );
     setShowCalendarMenu(false);
@@ -261,7 +261,12 @@ export function GraduationInvitation() {
             <div className="flex flex-col items-center px-[24px] pt-[15px] pb-[16px]">
               <p
                 className="text-[#4a4a4a] text-center uppercase"
-                style={{ fontFamily: SERIF, fontSize: "clamp(22px, 3.5vw, 28px)", letterSpacing: "2.2px", lineHeight: "28.6px" }}
+                style={{
+                  fontFamily: SERIF,
+                  fontSize: "clamp(22px, 3.5vw, 28px)",
+                  letterSpacing: "2.2px",
+                  lineHeight: "28.6px",
+                }}
               >
                 THÁNG 6
               </p>
@@ -278,7 +283,7 @@ export function GraduationInvitation() {
                   lineHeight: "13.2px",
                 }}
               >
-                10:30 SÁNG
+                9:30 SÁNG
               </p>
             </div>
 

@@ -188,7 +188,7 @@ function Container4() {
   return (
     <div className="content-stretch flex flex-col items-center relative shrink-0" data-name="Container">
       <div className="[word-break:break-word] flex flex-col font-['Manrope:Regular',sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[#666] text-[11px] text-center tracking-[1.1px] uppercase whitespace-nowrap">
-        <p className="leading-[13.2px]">10:30 SÁNG</p>
+        <p className="leading-[13.2px]">9:30 SÁNG</p>
       </div>
     </div>
   );
