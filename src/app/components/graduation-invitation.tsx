@@ -11,8 +11,8 @@ const SERIF = "'Tinos', 'Liberation Serif', serif";
 const SANS = "'Manrope', sans-serif";
 const SCRIPT = "'Great Vibes', cursive";
 
-// Target date for the live countdown (June graduation, 9:30 AM).
-const EVENT_DATE = new Date("2026-06-29T09:30:00");
+// Target date for the live countdown (9:30 AM Hanoi time = 02:30 UTC).
+const EVENT_DATE = new Date("2026-06-29T02:30:00Z");
 
 type Remaining = { days: number; hours: number; minutes: number; seconds: number };
 
